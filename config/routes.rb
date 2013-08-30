@@ -1,4 +1,7 @@
 MonkeyEditor::Application.routes.draw do
+  root :to=>"ConfigEntries#index"
+
+  resources :ConfigEntries
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

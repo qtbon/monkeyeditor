@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  config_entry_id: 1
+  property_definition_id: 1
+  value: 1.5
+
+two:
+  config_entry_id: 1
+  property_definition_id: 1
+  value: 1.5

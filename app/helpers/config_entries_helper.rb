@@ -1,0 +1,2 @@
+module ConfigEntriesHelper
+end
