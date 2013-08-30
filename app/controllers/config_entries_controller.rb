@@ -1,25 +1,14 @@
 class ConfigEntriesController < ApplicationController
 	def index
-		@propertyDefs = PropertyDefinition.all
-		# Get most recent entry
-		entry = ConfigEntry.last
-		return if entry == nil
-		properties = Property.where(config_entry_id: entry.id)
-
-		#push details into array: property name and value
-		propArray = [];
-		properties.each do |p|
-			definition = PropertyDefinition.where(id: p.property_definition_id).first
-			propArray << {:name=>definition.name, :value=>p.value}
-		end
+		@propArray = get_current_properties;
 
 		respond_to do |format|
 			format.html
 			format.json{
-				render :json => propArray.to_json
+				render :json => @propArray.to_json
 			}
 			format.xml{
-				render :xml => propArray.to_xml
+				render :xml => @propArray.to_xml
 			}
 
 		end
@@ -41,6 +30,33 @@ class ConfigEntriesController < ApplicationController
 			property.value = params[pd.name]
 			property.save
 		end
-		redirect_to :back
+		redirect_to '/'
+	end
+	def new
+		@propertyDefs = PropertyDefinition.all
+		currProperties = get_current_properties
+
+		return if currProperties.length < 1
+
+		@propertyDefs.each do |p|
+			cp = currProperties.find { |hash| hash[:name] == p.name }
+			p.default = cp[:value] if cp != nil
+		end
+
+	end
+
+	def get_current_properties
+		# Get most recent entry
+		entry = ConfigEntry.last
+		return [] if entry == nil
+		properties = Property.where(config_entry_id: entry.id)
+
+		#push details into array: property name and value
+		propArray = [];
+		properties.each do |p|
+			definition = PropertyDefinition.where(id: p.property_definition_id).first
+			propArray << {:name=>definition.name, :value=>p.value}
+		end
+		return propArray
 	end
 end

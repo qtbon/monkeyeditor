@@ -1,10 +1,10 @@
 <h1>Config Entries</h1>
-<%= form_tag "/ConfigEntries/" do %>
-	<% @propertyDefs.each do |p| %>
-		<div>
-			<%= label_tag p.name %>
-			<%= text_field_tag p.name, p.default %>
-		</div>
-	<% end %>
-	<%= submit_tag "Save" %>
+
+<h3>Current Values</h3>
+<% @propArray.each do |p| %>
+	<div>
+		<%= p[:name] %>: <%= p[:value] %>
+	</div>
 <% end %>
+
+<%= link_to "Edit Values", new_ConfigEntry_path %>
