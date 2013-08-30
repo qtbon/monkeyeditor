@@ -3,6 +3,7 @@ class ConfigEntriesController < ApplicationController
 		@propertyDefs = PropertyDefinition.all
 		# Get most recent entry
 		entry = ConfigEntry.last
+		return if entry == nil
 		properties = Property.where(config_entry_id: entry.id)
 
 		#push details into array: property name and value
