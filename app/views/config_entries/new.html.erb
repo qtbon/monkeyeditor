@@ -1,7 +1,8 @@
 <h1>Config Entries</h1>
 <%= form_tag "/ConfigEntries/" do %>
 	<% @propertyDefs.each do |p| %>
-		<div>
+		<div
+			<%= label_tag "[#{p.category}]" %>
 			<%= label_tag p.name %>
 			<%= text_field_tag p.name, p.default %>
 		</div>

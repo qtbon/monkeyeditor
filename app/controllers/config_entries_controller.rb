@@ -55,7 +55,7 @@ class ConfigEntriesController < ApplicationController
 		propArray = [];
 		properties.each do |p|
 			definition = PropertyDefinition.where(id: p.property_definition_id).first
-			propArray << {:name=>definition.name, :value=>p.value}
+			propArray << {:name=>definition.name, :value=>p.value, :category=>definition.category}
 		end
 		return propArray
 	end

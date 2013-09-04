@@ -3,7 +3,7 @@
 <h3>Current Values</h3>
 <% @propArray.each do |p| %>
 	<div>
-		<%= p[:name] %>: <%= p[:value] %>
+		[<%= p[:category] %>] <%= p[:name] %>: <%= p[:value] %>
 	</div>
 <% end %>
 
