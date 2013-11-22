@@ -11,7 +11,8 @@ propertyDefs = [
 	{:name=>"Point Value - Humming Bird", :category=>"Score", :default=>200},
 	{:name=>"Point Value - Macaw", :category=>"Score", :default=>100},
 	{:name=>"Point Value - Motmot", :category=>"Score", :default=>500},
-	{:name=>"Point Value - Toucan", :category=>"Score", :default=>400}
+	{:name=>"Point Value - Toucan", :category=>"Score", :default=>400},
+	{:name=>"Arm Movement Multiplier", :category=>"GamePlay", :default=>3}
 ]
 
 
