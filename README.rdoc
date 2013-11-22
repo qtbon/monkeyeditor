@@ -1,3 +1,3 @@
 == Monkey Editor
 
-This was a simple web app I created to allow a client to tweak variables in an iOS build of a game.  They would use the app the tweak values, and could ask the app to load the values.  The values were consumed as json downloaded from the web app.
+This was a simple web app I created to allow a client to tweak variables in an iOS build of a game.  They would use the web app the tweak values, and then would ask the iOS app to load the values through a settings menu.  The values were consumed as json downloaded from the web app.
